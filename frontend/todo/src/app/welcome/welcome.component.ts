@@ -10,6 +10,7 @@ import { WelcomeDataService } from '../service/data/welcome-data.service';
 export class WelcomeComponent  {
 
   name = ''
+  welcomeMessageFromService:string=''
 
   //ActivateRoute
   constructor(private route: ActivatedRoute,
@@ -24,10 +25,18 @@ export class WelcomeComponent  {
   
   getWelcomeMessage(){
     console.log(this.service.executeHelloWorldBeanService());
-    this.service.executeHelloWorldBeanService().subscribe();
-    // console.log("get welcome message")
+    this.service.executeHelloWorldBeanService().subscribe(
+      response => this.handleSuccessfulResponse(response)
+    );
+    console.log("Last line of  welcomeMessage")
 
 
+  }
+
+  handleSuccessfulResponse(response: any){
+    this.welcomeMessageFromService= response.message
+    // console.log(response);
+    // console.log(response.message);
   }
 
 }
