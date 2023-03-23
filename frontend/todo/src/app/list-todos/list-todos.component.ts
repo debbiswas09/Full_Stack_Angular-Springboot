@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { TodoDataService } from '../service/data/todo-data.service';
 
 export class Todo{
@@ -22,7 +23,8 @@ message: String=''
 
 
 constructor(
-  private todoDataService:TodoDataService
+  private todoDataService:TodoDataService,
+  private route:Router
 ){};
 
 ngOnInit(){
@@ -46,6 +48,12 @@ deleteTodo(id:number){
       this.refreshTodos();
     }
   )
+}
+
+updateTodo(id:number){
+  console.log(`update todo ${id}`)
+  this.route.navigate(['todos',id])
+
 }
 
 }
