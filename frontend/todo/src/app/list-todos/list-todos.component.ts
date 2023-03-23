@@ -17,29 +17,33 @@ export class Todo{
 })
 export class ListTodosComponent {
 todos: Todo[]=[];
-//=[
-//   new Todo(1,'Learn to Dance',false,new Date()),
-//   new Todo(2,'Finish a game',false,new Date()),
-//   new Todo(2,'Workout',false,new Date())
-//   // {id : 1,description: 'Learn to Dance'},
-//   // {id : 2,description: 'Finish a game'},
-//   // {id : 3,description: 'Workout'}
-// ]
-// todo={
-//       id : 1,
-//       description: 'Learn to Dance'
 
-// }
+message: String=''
+
 
 constructor(
   private todoDataService:TodoDataService
 ){};
 
 ngOnInit(){
+  this.refreshTodos()
+}
+refreshTodos(){
   this.todoDataService.retriveAllTodos('deb').subscribe(
     response =>{
       console.log(response);
       this.todos=response;
+    }
+  )
+}
+
+deleteTodo(id:number){
+  console.log(`delete todo ${id}`)
+  this.todoDataService.deleteTodo('deb',id).subscribe(
+    response => {
+      console.log(response);
+      this.message=`Deleted ${id} Successfully`
+      this.refreshTodos();
     }
   )
 }
