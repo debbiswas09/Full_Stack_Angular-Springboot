@@ -20,8 +20,8 @@ public class Todo {
 		this.isDone = isDone;
 	}
 
-	public Todo() {
-		super();
+	protected Todo() {
+		
 	}
 
 	public long getId() {

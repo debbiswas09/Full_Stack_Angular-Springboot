@@ -26,4 +26,10 @@ export class TodoComponent {
     )
   }
 
+  saveTodo(){
+    this.todoService.updateTodo('deb',this.id,this.todo).subscribe(
+        data=> console.log(data)
+    )
+  }
+
 }
