@@ -22,17 +22,31 @@ export class TodoComponent {
   ngOnInit(){
     this.id=this.route.snapshot.params['id'];
     this.todo = new Todo(this.id,'',false,new Date());
-    this.todoService.retriveTodo('deb',this.id).subscribe(
-          data=>this.todo=data
+    if(this.id!=-1){
+      this.todoService.retriveTodo('deb',this.id).subscribe(
+            data=>this.todo=data
     )
+    }
   }
 
   saveTodo(){
-    this.todoService.updateTodo('deb',this.id,this.todo).subscribe(
-        data=> {console.log(data);
-        this.router.navigate(['todos'])
+    if(this.id === -1){
+      //create todo
+      this.todoService.createTodo('deb',this.todo).subscribe(
+        data=> {
+          console.log(data);
+          this.router.navigate(['todos'])
       }
     )
+
+    }else{
+      this.todoService.updateTodo('deb',this.id,this.todo).subscribe(
+          data=> {
+            console.log(data);
+            this.router.navigate(['todos'])
+        }
+      )
+    }
   }
 
 }

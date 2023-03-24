@@ -56,4 +56,8 @@ updateTodo(id:number){
 
 }
 
+addTodo(){
+  this.route.navigate(['todos',-1])
+}
+
 }
