@@ -20,6 +20,11 @@ public class HelloWorldBean {
 	public String toString() {
 		return "HelloWorldBean [message=" + message + "]";
 	}
+
+	public HelloWorldBean() {
+		super();
+	}
+	
 	
 	
 
