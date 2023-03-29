@@ -13,11 +13,11 @@
         </fieldset>
 
         <fieldset class="form-group">
-        <label >Target Date</label>
-        <input type="date"  #targetDate="ngModel"
-            [ngModel]="todo.targetDate | date:'yyyy-MM-dd'" 
-            (ngModelChange)="todo.targetDate=$event"
-            class="form-control" name="targetDate" required="required">
+            <label >Target Date</label>
+            <input type="date"  #targetDate="ngModel"
+                [ngModel]="todo.targetDate | date:'yyyy-MM-dd'" 
+                (ngModelChange)="todo.targetDate=$event"
+                class="form-control" name="targetDate" required="required">
         </fieldset>
 
         <button type="submit" class="btn btn-success" >
