@@ -1,4 +1,4 @@
-package com.debmalya.rest.webservices.restfulwebservices.basic.auth;
+package com.debmalya.rest.basic.auth;
 
 public class AuthenticationBean {
 	
