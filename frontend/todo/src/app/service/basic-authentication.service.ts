@@ -11,20 +11,11 @@ export class BasicAuthenticationService {
     private http:HttpClient
   ) { }
 
-  authenticate(username: string,password: string){
-    if(username==="deb" && password==='dummy'){
-      sessionStorage.setItem('authenticateUser',username);
-      return true;
-    }
-    return false;
-  }
 
   executeAuthenticationService(username: string,password: string){
 
     let basicAuthHeaderString = 'Basic '+ window.btoa(username + ':' + password);
    
-
-    
     let headers = new HttpHeaders({
       Authorization:basicAuthHeaderString
     })
@@ -34,11 +25,23 @@ export class BasicAuthenticationService {
       map(
         data =>{
           sessionStorage.setItem('authenticateUser',username);
+          sessionStorage.setItem('token',basicAuthHeaderString);
           return data;
         }
       )
     );
     // console.log("Execute Hello World Bean Service")
+  }
+
+  getAuthenticatedUser(){
+    return sessionStorage.getItem('authenticateUser')
+  }
+
+  getAuthenticatedToken(){
+    if(this.getAuthenticatedUser())
+      return sessionStorage.getItem('token')
+
+    return null
   }
 
   
@@ -50,6 +53,7 @@ export class BasicAuthenticationService {
 
   logout(){
     sessionStorage.removeItem('authenticateUser')
+    sessionStorage.removeItem('token')
   }
 }
 
