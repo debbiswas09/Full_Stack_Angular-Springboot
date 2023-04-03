@@ -17,7 +17,7 @@ export class LoginComponent {
   invalidLogin = false;
 
   //Dependency Injection
-  constructor(private router: Router,
+  constructor(public router: Router,
     private hardcodedAuthenticationService:HardcodedAuthenticationService,
     private basicAuthenticationService : BasicAuthenticationService ){}
 

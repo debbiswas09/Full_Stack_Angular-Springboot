@@ -30,7 +30,7 @@ export class TodoComponent {
   }
 
   saveTodo(){
-    if(this.id === -1){
+    if(this.id == -1){
       //create todo
       this.todoService.createTodo('deb',this.todo).subscribe(
         data=> {

@@ -16,6 +16,14 @@ const routes: Routes = [
   {path:'logout',component: LogoutComponent,canActivate:[RouteGuardService]},
   {path:'todos/:id',component: TodoComponent,canActivate:[RouteGuardService]},
   {path:'**',component: ErrorComponent}
+
+  // {path:'',component: LoginComponent},
+  // {path:'login',component: LoginComponent},
+  // {path:'welcome/:name',component: WelcomeComponent},
+  // {path:'todos',component: ListTodosComponent},
+  // {path:'logout',component: LogoutComponent},
+  // {path:'todos/:id',component: TodoComponent},
+  // {path:'**',component: ErrorComponent}
   
 ];
 
