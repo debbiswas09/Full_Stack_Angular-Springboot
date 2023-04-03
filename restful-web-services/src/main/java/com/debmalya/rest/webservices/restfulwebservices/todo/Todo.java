@@ -3,20 +3,30 @@ package com.debmalya.rest.webservices.restfulwebservices.todo;
 import java.util.Date;
 import java.util.Objects;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Todo {
 	
-	private long id;
-	private String userName;
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	
+	private String username;
 	private String description;
-	private Date targetdate;
+	private Date targetDate;
 	private boolean isDone;
 	
 	public Todo(long id, String userName, String description, Date targetdate, boolean isDone) {
 		super();
 		this.id = id;
-		this.userName = userName;
+		this.username = userName;
 		this.description = description;
-		this.targetdate = targetdate;
+		this.targetDate = targetdate;
 		this.isDone = isDone;
 	}
 
@@ -24,20 +34,20 @@ public class Todo {
 		
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.username = userName;
 	}
 
 	public String getDescription() {
@@ -49,11 +59,11 @@ public class Todo {
 	}
 
 	public Date getTargetdate() {
-		return targetdate;
+		return targetDate;
 	}
 
 	public void setTargetdate(Date targetdate) {
-		this.targetdate = targetdate;
+		this.targetDate = targetdate;
 	}
 
 	public boolean isDone() {
