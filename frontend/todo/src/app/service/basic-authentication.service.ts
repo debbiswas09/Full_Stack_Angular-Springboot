@@ -20,15 +20,16 @@ export class BasicAuthenticationService {
 
 
     return this.http.post<any>(
-      `${API_URL}/authenticate`,
-    {username,password})
-    .pipe(
-      map(
-        data =>{
-          sessionStorage.setItem(AUTHENTICATED_USER,username);
-          sessionStorage.setItem(TOKEN,`Bearer ${data.token}`);
-          return data;
-        }
+      `${API_URL}/authenticate`,{
+        username,
+        password
+      }).pipe(
+         map(
+          data =>{
+            sessionStorage.setItem(AUTHENTICATED_USER, username);
+            sessionStorage.setItem(TOKEN, `Bearer ${data.token}`);
+            return data;
+          }
       )
     );
     // console.log("Execute Hello World Bean Service")

@@ -76,7 +76,7 @@ public class JWTWebSecurityConfig {
 
 	@Bean
 	public UserDetailsService userDetailsService() {
-		UserDetails user = User.withUsername("in28minutes")
+		UserDetails user = User.withUsername("deb")
 				.password("{noop}dummy")
 				.authorities("read")
 				.roles("USER")
