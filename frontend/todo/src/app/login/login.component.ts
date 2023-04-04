@@ -17,7 +17,7 @@ export class LoginComponent {
   invalidLogin = false;
 
   //Dependency Injection
-  constructor(public router: Router,
+  constructor(private router: Router,
     private hardcodedAuthenticationService:HardcodedAuthenticationService,
     private basicAuthenticationService : BasicAuthenticationService ){}
 
@@ -54,17 +54,20 @@ export class LoginComponent {
 
   handleJWTAuthLogin() {
     this.basicAuthenticationService.executeJWTAuthenticationService(this.username,this.password)
-    .subscribe(
-      data  => {
-        console.log(data)
-        this.router.navigate(['welcome', this.username])
-        this.invalidLogin = false      
-      },
-      error => {
-        console.log(error)
-        this.invalidLogin = true
-      }
-    )
+      .subscribe(
+        data =>{
+          console.log(data)
+          this.router.navigate(['welcome',this.username])
+          this.invalidLogin = false
+        },
+        error =>{
+          console.log(error)
+          this.invalidLogin = true
+        }
+        
+      )
+   
+
   }
     
   }
